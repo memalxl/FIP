@@ -1,0 +1,80 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Vacancy {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model JobSeeker {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model Application {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model Resume {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model Company {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  industry  String?
+  name      String?
+  updatedAt DateTime @updatedAt
+  website   String?
+}
+
+model Review {
+  createdAt   DateTime @default(now())
+  description String?
+  id          String   @id @default(cuid())
+  location    String?
+  salary      Int?
+  title       String?
+  updatedAt   DateTime @updatedAt
+}
+
+model Notification {
+  content   String?
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  typeField String?
+  updatedAt DateTime @updatedAt
+}
+
+model Portfolio {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model UserProfile {
+  createdAt DateTime @default(now())
+  email     String?
+  fullName  String?
+  id        String   @id @default(cuid())
+  phone     String?
+  updatedAt DateTime @updatedAt
+}
+
+model Skill {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
